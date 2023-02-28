@@ -30,7 +30,8 @@ const factory = {
   async initalize() {
      return Controller.initialize({
         view: new View(),
-        service: new Service({})
+        service: new Service({}),
+        worker
     }) 
   }
 }
