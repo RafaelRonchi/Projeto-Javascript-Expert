@@ -1,13 +1,15 @@
 export default class Controller{
     #view
-    #service
     #worker
-    constructor({ view, service, worker}){
+    #camera
+    #blinkCounter = 0
+
+    constructor({ view, service, worker, camera}){
         this.#view = view
-        this.#service = service
+        this.#camera = camera
         this.#worker = this.#configureWorker(worker)
 
-        this.#view.configureOnBtnClick(this.onBtnStar.bind(this))
+        this.#view.configureOnBtnClick(this.onBtnStart.bind(this))
     }
     static async initialize(deps) {
         const controller = new Controller(deps)
@@ -15,23 +17,44 @@ export default class Controller{
         return controller.init()
     }
     #configureWorker(worker){
-        worker.onmessage = (msg) => {
-            console.log("configureworker true", msg)
-            if('ready' === msg.data || 'READY' === msg.data){
-                console.log("If Button true", msg)
+        worker.onmessage = ({ data }) => {
+            let ready = false
+            if('ready' === data || 'READY' === data){
+                console.log('worker is ready')
                 this.#view.enableButton()
+                ready = true
                 return;
             }
+            const blinked = data.blinked
+            this.#blinkCounter += blinked
+            console.log('blinked', blinked)
+
         }
-        return worker
+        return {
+            send (msg){
+                if(!ready) return;
+                worker.postMessage(msg)
+            }
+        }
     }
     async init(){
         console.log("init")
     }
+
+    loop(){
+        const video = this.#camera.video
+        const img = this.#view.getVideoFrame(video)
+        this.#worker.send(img)
+        this.log(`detecting eye blink...`)
+
+        setTimeout(() => this.loop, 100);
+    }
     log(text){
         this.#view.log(`logger: ${text}`)
     }
-    onBtnStar(){
+    onBtnStart(){
         this.log('initialize detection...')
+        this.#blinkCounter = 0
+        this.loop()
     }
 }
