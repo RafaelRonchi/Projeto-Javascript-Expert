@@ -1,0 +1,24 @@
+index.js = resposavel por chamar todas as chamadas
+
+workers{ (processo em segundo plano)
+    toda a logica pesada
+    que possa travar
+}
+
+services{
+    toda logica de nocio
+    toda chamada externa (API, arquivos , db)
+    views{
+        toda iteração com o DOM (com o html, com a pagina)
+    }
+}
+
+controllers{
+    é a intermedia entre services ou workers e views
+}
+
+factories{
+    é quem importa as dependencias 
+    e cria o obj final para fazer as chamadas
+    retorna a funcção que incializa o fluxo do (init)
+}
