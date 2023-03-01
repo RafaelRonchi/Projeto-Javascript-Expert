@@ -17,8 +17,8 @@ export default class Controller{
         return controller.init()
     }
     #configureWorker(worker){
+        let ready = false
         worker.onmessage = ({ data }) => {
-            let ready = false
             if('ready' === data || 'READY' === data){
                 console.log('worker is ready')
                 this.#view.enableButton()
@@ -31,8 +31,8 @@ export default class Controller{
 
         }
         return {
-            send (msg){
-                if(!ready) return;
+            send(msg){
+                if(!ready) return
                 worker.postMessage(msg)
             }
         }
