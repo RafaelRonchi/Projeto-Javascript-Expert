@@ -1,1 +1,1 @@
-export default class handGestureView{}
+export default class HandGestureView{}

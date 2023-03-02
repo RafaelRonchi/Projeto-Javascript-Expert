@@ -1,4 +1,4 @@
-export default class handGestureController{
+export default class HandGestureController{
     #view
     #service
     constructor({ view, service }){
@@ -10,7 +10,7 @@ export default class handGestureController{
     }
 
     static async initialize(deps) {
-        const controller = new handGestureView(deps)
+        const controller = new HandGestureController(deps)
         return controller.init()
     }
 }
