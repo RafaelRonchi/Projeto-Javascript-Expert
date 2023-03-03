@@ -12,6 +12,12 @@ export default class HandGestureView{
     this.#canvasContext.clearRect(0, 0, this.#handsCanvas.width, this.#handsCanvas.height)
   }
 
+  clickOnElement(x, y){
+    const element = document.elementFromPoint(x, y)
+    if(!element) return
+    console.log({ element, x, y })
+  }
+
   drawResults(hands){
     for( const { keypoints, handedness} of hands){
       if(!keypoints) continue
