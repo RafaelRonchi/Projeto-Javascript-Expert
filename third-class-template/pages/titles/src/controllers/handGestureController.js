@@ -19,7 +19,7 @@ export default class HandGestureController {
     return this.#loop()
   }
   #scrollPage(direction) {
-    const pixelsPerScroll = 100
+    const pixelsPerScroll = 80
     if (this.#lastDirection.direction === direction) {
       this.#lastDirection.y = (
         direction === 'scroll-down' ?
@@ -37,7 +37,7 @@ export default class HandGestureController {
   async #estimateHands() {
     try {
       const hands = await this.#service.estimateHands(this.#camera.video)
-      
+
       this.#view.clearCanvas()
       if(hands?.length) this.#view.drawResults(hands)
 

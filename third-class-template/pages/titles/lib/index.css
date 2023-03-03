@@ -1,9 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;600&family=Roboto&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&display=swap");
 #hands{
-    
-    position: absolute;
-    display: flex;
+     /* faz com que elementos possam ser clicavel */
+     pointer-events: none;
+
+     /* faz ficar em cima dos elementos */
+     position: fixed;
+ 
+     /* fica à frente dos elementos */
+     z-index: 2;
 
 }
 
