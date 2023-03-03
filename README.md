@@ -18,10 +18,10 @@ Seja bem vindo(a) ao projeto Semana Javascript Expert.
 ## Checklist Features
 - Titles List
   - [X] - Campo para pesquisa não deve travar ao digitar termo de pesquisa
-  - [] - Deve desenhar mãos na tela e fazer com que elementos em segundo plano  continuem sendo clicáveis  🙌
+  - [X] - Deve desenhar mãos na tela e fazer com que elementos em segundo plano  continuem sendo clicáveis  🙌
   - [X] - Deve disparar scroll up quando usar a palma das mãos abertas 🖐
   - [X] - Deve disparar scroll down quando usar a palma das mãos fechadas ✊
-  - [] - Deve disparar click no elemento mais próximo quando usar  gesto de pinça 🤏🏻
+  - [X] - Deve disparar click no elemento mais próximo quando usar  gesto de pinça 🤏🏻
   - [] - Ao mover elementos na tela, deve disparar evento **:hover** em elementos em contexto
 
 - Video Player

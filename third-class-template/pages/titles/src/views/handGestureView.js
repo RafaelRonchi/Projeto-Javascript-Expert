@@ -15,7 +15,16 @@ export default class HandGestureView{
   clickOnElement(x, y){
     const element = document.elementFromPoint(x, y)
     if(!element) return
-    console.log({ element, x, y })
+    
+    const rect = element.getBoundingClientRect()
+    const event = new MouseEvent('click', {
+      wiew: window,
+      bubbles: true,
+      cancelable: true,
+      clientX: rect.left + x,
+      clientY: rect.top + y
+    })
+    element.dispatchEvent(event)
   }
 
   drawResults(hands){
