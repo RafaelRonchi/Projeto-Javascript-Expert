@@ -1,5 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;600&family=Roboto&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&display=swap");
+#hands{
+    
+    position: absolute;
+    display: flex;
+
+}
 
 :root {
     --blue: rgba(35, 73, 189, 1);
