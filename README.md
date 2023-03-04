@@ -2,6 +2,8 @@
 
 Seja bem vindo(a) ao projeto Semana Javascript Expert.
 
+## Live demo
+Para testar o projeto [clique aqui](https://rafaelronchi.github.io/Projeto-Javascript-Expert/final-class-template/pages/titles/)
 
 ## Preview
 <img width=100% src="./initial-template/assets/demo-template-lg.gif">
